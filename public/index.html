@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Petter Nilsson</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
+
+    <script src="js/Parser.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/pubs.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body ng-app="acadApp">
+    <div>
+      <a href="/">Start</a>
+      <a href="/#/bio">Bio</a>
+      <a href="/#/pubs">Publications</a>
+    </div>
+    <div ng-view> </div>
+  </body>
+</html>
