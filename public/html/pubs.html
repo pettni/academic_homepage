@@ -1,33 +1,30 @@
-<h1>Publications</h1>
+<h2>List of publications</h2>
 
-
-<h2>Conference papers</h2>
+<h3>Conference papers</h3>
 
 <ul ng-repeat="pub in pubs.entries | filter: { EntryType: 'inproceedings' } | orderBy: '-Fields.Year'">
-<li ng-click="showAbstract = !showAbstract">
-	<div class="publist" id="author">{{pub.Fields.Author}},</div>
-	<div class="publist" id="title">{{pub.Fields.Title}},</div>
-	<div class="publist" id="source">in {{pub.Fields.Booktitle}},</div>
-	<div class="publist" id="year" ng-show="pub.Fields.Pages">{{pub.Fields.Pages}},</div>
-	<div class="publist" id="year">{{pub.Fields.Year}}</div>
-	<p ng-show="showAbstract">Abstract: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero eum aut temporibus voluptates expedita, quod consequuntur. Dolor ea, est doloremque ex placeat, dicta odio vitae laudantium, enim nesciunt eveniet pariatur.</p>
-
-	<p ng-show="showAbstract"><a ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Download PDF</a> <a ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Download slides</a></p>
+<li>
+	<p>
+		{{pub.Fields.Author}}, <strong>{{pub.Fields.Title}}</strong>, <em>in {{pub.Fields.Booktitle}}</em>,
+		<span ng-show="pub.Fields.Pages">{{pub.Fields.Pages}},</span> 
+		{{pub.Fields.Year}}
+		<a id="morearrow" ng-click="showMore = !showMore">&#10132;</a>
+	</p>
+	<p ng-show="showMore && pub.Fields.Abstract"><b>Abstract:</b> {{pub.Fields.Abstract}}</p>
+	<p ng-show="showMore"><a ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Download PDF</a> <a ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Download slides</a></p>
 </li>
 </ul>
 
-<h2>Theses</h2>
+<h3>Theses</h3>
 
 <ul ng-repeat="pub in pubs.entries | filter: { EntryType: 'mastersthesis' } | orderBy: '-Fields.Year'">
-<li ng-click="showAbstract = !showAbstract">
-	<div class="publist" id="author">{{pub.Fields.Author}},</div>
-	<div class="publist" id="title">{{pub.Fields.Title}},</div>
-	<div class="publist" id="source">{{pub.Fields.Type}} at {{pub.Fields.School}},</div>
-	<div class="publist" id="year">{{pub.Fields.Year}}</div>
+<li>
+	<p>
+		{{pub.Fields.Author}}, <strong>{{pub.Fields.Title}}</strong>, <em>{{pub.Fields.Type}} at {{pub.Fields.School}}</em>, {{pub.Fields.Year}}
+		<a id="morearrow" ng-click="showMore = !showMore">&#10132;</a>
+	</p>
+	<p ng-show="showMore">{{pub.Fields.Abstract}}</p>
 
-	<p ng-show="showAbstract">Abstract: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero eum aut temporibus voluptates expedita, quod consequuntur. Dolor ea, est doloremque ex placeat, dicta odio vitae laudantium, enim nesciunt eveniet pariatur.</p>
-
-	<p ng-show="showAbstract"><a ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Download PDF</a> <a ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Download slides</a></p>
-
+	<p ng-show="showMore"><a ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Download PDF</a> <a ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Download slides</a></p>
 </li>
 </ul>

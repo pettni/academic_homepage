@@ -1,28 +1,10 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+font-family: 'Open Sans', sans-serif;
+  /*font-size: 16px*/
 }
 
-.publist {
-	display: inline;
-}
-
-#author {
-	color: #00B7FF;
-}
-
-#title {
-    font-weight: bold;
-}
-
-#source {
-	font-style: italic;
-}
-
-#pages {
-
-}
-
-#year {
-
+#morearrow {
+	cursor: pointer;
 }

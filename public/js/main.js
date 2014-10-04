@@ -12,7 +12,13 @@ angular.module('acadApp', ['ngRoute'])
     .when('/bio', {
       templateUrl:'html/bio.html'
     })
+    .when('/more', {
+      templateUrl:'html/more.html'
+    })
     .otherwise({
       redirectTo:'/'
     });
+})
+.controller('mainCtrl', function($scope, $location) {
+  $scope.button = $location.url();
 })
