@@ -12,8 +12,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
 
     <!-- Remote bootstrap js -->
-    <!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     
     <!-- Bibtex parser -->
     <script src="js/Parser.js"></script>
@@ -32,12 +32,51 @@
   </head>
 
   <body ng-app="acadApp" >
-    <ul class="nav nav-pills nav-justified" ng-controller="mainCtrl">
-      <li ng-click="button = '/'" ng-class="{'active': button == '/'}"><a href="#">Start</a></li>
-      <li ng-click="button = '/bio'" ng-class="{'active': button == '/bio'}"><a href="#/bio">Bio</a></li>
-      <li ng-click="button = '/pubs'" ng-class="{'active': button == '/pubs'}"><a href="#/pubs">Publications</a></li>
-      <li ng-click="button = '/more'" ng-class="{'active': button == '/more'}"><a href="#/more">More</a></li>
-    </ul>
+
+    <nav class="navbar navbar-default navbar-top" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="mainCtrl">
+          <ul class="nav navbar-nav">
+          <li ng-class="{'active': button == '/'}">
+            <a href="#">
+              <span class="glyphicon glyphicon-home"></span>
+              Start
+            </a>
+          </li>
+          <li ng-class="{'active': button == '/bio'}">
+            <a href="#/bio">
+              <span class="glyphicon glyphicon-info-sign"></span>
+              Bio
+            </a>
+          </li>
+          <li ng-class="{'active': button == '/pubs'}">
+            <a href="#/pubs">
+              <span class="glyphicon glyphicon-file"></span> 
+              Publications
+            </a>
+          </li>
+          <li ng-class="{'active': button == '/more'}">
+            <a href="#/more">
+              <span class="glyphicon glyphicon-plus"></span> 
+              More
+            </a>
+          </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
     <div class="container-fluid" ng-view> </div>
   </body>
 </html>

@@ -20,5 +20,9 @@ angular.module('acadApp', ['ngRoute'])
     });
 })
 .controller('mainCtrl', function($scope, $location) {
-  $scope.button = $location.url();
+  var updateButton = function() {
+    $scope.button = $location.url();
+  };
+
+  $scope.$on('$routeChangeStart', updateButton);
 })

@@ -27,9 +27,9 @@ module.exports = function(grunt) {
     },
 
     express: {
-      mongoserver: {
+      server: {
         options: {
-          hostname: 'localhost',
+          // hostname: 'localhost',
           port: 3000,
           server: 'server.js',
           bases: 'public/',
