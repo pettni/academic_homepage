@@ -1,59 +1,58 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Petter Nilsson</title>
+  <title>Petter Nilsson</title>
 
-    <!-- Remote angular js -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
+  <!-- Remote angular js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
 
-    <!-- Remote bootstrap js -->
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    
-    <!-- Bibtex parser -->
-    <script src="js/Parser.js"></script>
+  <!-- Angular UI Bootstrap -->
+  <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.2.min.js"></script>
+  
+  <!-- Remote bootstrap js -->
+  <!-- // <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+  <!-- // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
 
-    <!-- Local js -->
-    <script src="js/main.js"></script>
-    <script src="js/pubs.js"></script>
+  <!-- Bibtex parser -->
+  <script src="js/Parser.js"></script>
 
-    <!-- Remote css -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet' type='text/css'>
+  <!-- Local js -->
+  <script src="js/main.js"></script>
+  <script src="js/pubs.js"></script>
+  <script src="js/bibmodal.js"></script>
+  <script src="js/ngClip.js"></script>
+  <script src="js/ZeroClipboard.min.js"></script>
 
-    <!-- Local css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-  </head>
+  <!-- Remote css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-  <body ng-app="acadApp" >
+  <!-- Local css -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <nav class="navbar navbar-default navbar-top" role="navigation">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
+</head>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="mainCtrl">
-          <ul class="nav navbar-nav">
-          <li ng-class="{'active': button == '/'}">
-            <a href="#">
-              <span class="glyphicon glyphicon-home"></span>
-              Start
-            </a>
-          </li>
+<body ng-app="acadApp" ng-controller="mainCtrl">
+
+  <nav class="navbar navbar-default navbar-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-click="navbarCollapsed = !navbarCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a style="color: #428bca" class="navbar-brand" href="#">
+            <span class="glyphicon glyphicon-home"></span>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" collapse="navbarCollapsed" >
+        <ul class="nav navbar-nav">
           <li ng-class="{'active': button == '/bio'}">
             <a href="#/bio">
               <span class="glyphicon glyphicon-info-sign"></span>
@@ -72,12 +71,12 @@
               More
             </a>
           </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
-    <div class="container-fluid" ng-view> </div>
-  
-  </body>
+  <div class="container-fluid" ng-view> </div>
+
+</body>
 </html>

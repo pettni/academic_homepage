@@ -1,4 +1,8 @@
-angular.module('acadApp', ['ngRoute'])
+angular.module('acadApp', ['ngRoute', 'ngClipboard', 'ui.bootstrap'])
+
+.config(['ngClipProvider', function(ngClipProvider) {
+  ngClipProvider.setPath("js/ZeroClipboard.swf");
+}])
 
 .config(function($routeProvider) {
   $routeProvider
@@ -23,6 +27,8 @@ angular.module('acadApp', ['ngRoute'])
   var updateButton = function() {
     $scope.button = $location.url();
   };
+
+  $scope.navbarCollapsed = true;
 
   $scope.$on('$routeChangeStart', updateButton);
 })
