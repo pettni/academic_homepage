@@ -33,3 +33,5 @@ body {
       }
 .clip_button.zeroclipboard-is-hover { background-color: #eee; }
 .clip_button.zeroclipboard-is-active { background-color: #aaa; }
+
+.img-center { margin: 0 auto; }
