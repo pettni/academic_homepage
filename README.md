@@ -13,7 +13,7 @@ A simple homepage for academic use, based on AngularJS and Bootstrap.
 
 To set up the webpage on an existing server, just copy the content of `public` into your `public_html` folder and start editing the files in `html`.
 
-For easy development/personalization, checkout the repo and do
+For easy development/personalization, clone the repo and do
 ```
 npm install
 grunt
