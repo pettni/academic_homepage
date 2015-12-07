@@ -6,10 +6,10 @@ A simple homepage for academic use, based on AngularJS and Bootstrap.
 
 * Lightweight.
 * Creates a list of publications from a `.bib` file.
-* Included node scripts for development with livereload etc.
+* Includes node scripts for streamlined development with livereload etc.
 
 ## Publication list
-If the `.bib` file has entries named "Abstract" (text), "Pdf" (address) or "Slides" (address), the information will be appended to the publication list. Currently, there is support for @inproceedings, @article and @mastersthesis.
+If the `.bib` file has entries named "Abstract" (text), "Url" (url) or "Slides" (url), the information will be appended to the publication list. Currently, there is support for @inproceedings, @article, @mastersthesis and @phdthesis.
 
 ## Installation
 
