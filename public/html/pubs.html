@@ -2,81 +2,45 @@
 
 <p ng-show="error" class="bg-danger">No publications found</p>
 
-<div ng-show="hasArticle">
+<div ng-repeat="pub_info in sorted_pubs">
 
-<h3>Journal papers</h3>
+	<h3>{{pub_info.name}}</h3>
 
-<ul class="list-group" >
-<li class="list-group-item " ng-repeat="pub in pubs.entries | filter: { EntryType: 'article' } | orderBy: '-Fields.Year'">
-	<span class="glyphicon glyphicon-file"></span> 
-	<span class="list-group-item-text">
-		{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, <em>in {{pub.Fields.Journal}}</em>,
-		<span ng-show="pub.Fields.Pages">{{pub.Fields.Pages}},</span> 
-		{{pub.Fields.Year}}
-		<a id="morearrow" class="glyphicon" ng-class="{'glyphicon-arrow-down': showMore, 'glyphicon-arrow-right': !showMore}" ng-click="showMore = !showMore"></a>
-	</span>
-	<div ng-show="showMore" id="pubhidden">
-		<span ng-show="pub.Fields.Abstract"><strong>Abstract: </strong>{{pub.Fields.Abstract}}</span>
-		<div id="pubButtons">
-			<a class="label label-primary" ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Link</a> 
-			<a class="label label-primary" ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Slides</a>
-			<a class="label label-primary" ng-click="open(pub)">BibTeX</a>
-		</div>
-	</div>
-</li>
-</ul>
+	<ul class="list-group">
+		<li class="list-group-item " ng-repeat="pub in pub_info.pubs | orderBy: '-Fields.Year'">
 
-</div>
+			<!-- Add text depending on publication type -->
+			<span class="list-group-item-text" ng-switch on="pub.EntryType">
+			    <span ng-switch-when="article">
+			   		<span class="glyphicon glyphicon-file"></span>
+					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, <em>in {{pub.Fields.Journal}}</em>,<span ng-show="pub.Fields.Pages"> {{pub.Fields.Pages}},</span> {{pub.Fields.Year}} 
+				</span>
+			    <span ng-switch-when="inproceedings">
+   			   		<span class="glyphicon glyphicon-file"></span>
+					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, in <em>{{pub.Fields.Booktitle}}</em>,
+				<span ng-show="pub.Fields.Pages">{{pub.Fields.Pages}},</span> 
+				{{pub.Fields.Year}}
+			    </span>			
+			    <span ng-switch-when="mastersthesis">
+			   		<span class="glyphicon glyphicon-book"></span>
+					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, <em>{{pub.Fields.Type}} at {{pub.Fields.School}}</em>, {{pub.Fields.Year}}
+			    </span>
+			    <span ng-switch-when="phdthesis">
+			   		<span class="glyphicon glyphicon-book"></span>
+					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, Ph.D. thesis at {{pub.Fields.School}}</em>, {{pub.Fields.Year}}
+			    </span>
+				<a id="morearrow" class="glyphicon" ng-class="{'glyphicon-arrow-down': showMore, 'glyphicon-arrow-right': !showMore}" ng-click="showMore = !showMore"></a>
+			</span>	
 
-<div ng-show="hasConf">
-
-<h3>Conference proceedings</h3>
-
-<ul class="list-group" >
-<li class="list-group-item " ng-repeat="pub in pubs.entries | filter: { EntryType: 'inproceedings' } | orderBy: '-Fields.Year'">
-	<span class="glyphicon glyphicon-file"></span> 
-	<span class="list-group-item-text">
-		{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, in <em>{{pub.Fields.Booktitle}}</em>,
-		<span ng-show="pub.Fields.Pages">{{pub.Fields.Pages}},</span> 
-		{{pub.Fields.Year}}
-		<a id="morearrow" class="glyphicon" ng-class="{'glyphicon-arrow-down': showMore, 'glyphicon-arrow-right': !showMore}" ng-click="showMore = !showMore"></a>
-	</span>
-	<div ng-show="showMore" id="pubhidden">
-		<span ng-show="pub.Fields.Abstract"><strong>Abstract: </strong>{{pub.Fields.Abstract}}</span>
-		<br />
-		<div id="pubButtons">
-			<a class="label label-primary" ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Link</a> 
-			<a class="label label-primary" ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Slides</a>
-			<a class="label label-primary" ng-click="open(pub)">BibTeX</a>
-		</div>
-	</div>
-</li>
-</ul>
-
-</div>
-
-<div ng-show="hasTheses">
-
-<h3>Theses</h3>
-
-<ul class="list-group" >
-<li class="list-group-item" ng-repeat="pub in pubs.entries | filter: { EntryType: 'mastersthesis' } | orderBy: '-Fields.Year'">
-	<span class="glyphicon glyphicon-book"></span> 
-	<span class="list-group-item-text">
-		{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, <em>{{pub.Fields.Type}} at {{pub.Fields.School}}</em>, {{pub.Fields.Year}}
-		<a id="morearrow" class="glyphicon" ng-class="{'glyphicon-arrow-down': showMore, 'glyphicon-arrow-right': !showMore}" ng-click="showMore = !showMore"></a>
-	</span>
-	<div ng-show="showMore" id="pubhidden" >
-		<span class="list-group-item-text" ng-show="pub.Fields.Abstract">
-			<strong>Abstract:</strong> {{pub.Fields.Abstract}}
-		</span>
-		<div id="pubButtons">
-			<a class="label label-primary" ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Link</a> 
-			<a class="label label-primary" ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Slides</a>
-			<a class="label label-primary" ng-click="open(pub)">BibTeX</a>
-		</div>
-	</div>
-</li>
-</ul>
+			<div ng-show="showMore" id="pubhidden">
+				<span ng-show="pub.Fields.Abstract"><strong>Abstract: </strong>{{pub.Fields.Abstract}}</span>
+				<div id="pubButtons">
+					<a class="label label-primary" ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Link</a> 
+					<a class="label label-primary" ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Slides</a>
+					<a class="label label-primary" ng-click="open(pub)">BibTeX</a>
+				</div>
+			</div>
+		</li>
+	</ul>
 
 </div>

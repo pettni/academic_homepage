@@ -38,12 +38,19 @@ angular.module('acadApp')
 	  		replaceAllButLast(rawjson.entries[index].Fields.Author, " and");
 	  	}
 
-	  	// Check what kinds of publications we have
-	  	$scope.hasConf = $filter('filter')(rawjson, {'EntryType': 'article'}, true);
-	  	$scope.hasArticle = $filter('filter')(rawjson, {'EntryType': 'inproceedings'}, true);
-	  	$scope.hasTheses = $filter('filter')(rawjson, {'EntryType': 'mastersthesis'}, true);;
+	  	sorted_pubs = [];
 
-	  	$scope.pubs = rawjson;
+	  	pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'article'}, false);
+	  	if (pub_search.length) { sorted_pubs.push({ name:'Journal papers', pubs: pub_search}) };
+
+	  	pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'inproceedings'}, false);
+	  	if (pub_search.length) { sorted_pubs.push({ name:'Conference proceedings', pubs: pub_search}) };
+
+	  	pub_search = $filter('filter')(rawjson.entries, {'EntryType': 'thesis'}, false);
+	  	if (pub_search.length) { sorted_pubs.push({ name:'Theses', pubs: pub_search}) };
+
+	  	$scope.sorted_pubs = sorted_pubs
+
 	  }).
   	error(function(data, status, headers, config) {
   		$scope.error = "No publications found";
