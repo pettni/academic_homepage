@@ -2,7 +2,7 @@
 
 <p ng-show="error" class="bg-danger">No publications found</p>
 
-<div ng-show="haveJournal">
+<div ng-show="hasArticle">
 
 <h3>Journal papers</h3>
 
@@ -10,7 +10,7 @@
 <li class="list-group-item " ng-repeat="pub in pubs.entries | filter: { EntryType: 'article' } | orderBy: '-Fields.Year'">
 	<span class="glyphicon glyphicon-file"></span> 
 	<span class="list-group-item-text">
-		{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, <em>in {{pub.Fields.Booktitle}}</em>,
+		{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, <em>in {{pub.Fields.Journal}}</em>,
 		<span ng-show="pub.Fields.Pages">{{pub.Fields.Pages}},</span> 
 		{{pub.Fields.Year}}
 		<a id="morearrow" class="glyphicon" ng-class="{'glyphicon-arrow-down': showMore, 'glyphicon-arrow-right': !showMore}" ng-click="showMore = !showMore"></a>
@@ -18,8 +18,8 @@
 	<div ng-show="showMore" id="pubhidden">
 		<span ng-show="pub.Fields.Abstract"><strong>Abstract: </strong>{{pub.Fields.Abstract}}</span>
 		<div id="pubButtons">
-			<a class="label label-primary" ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Download PDF</a> 
-			<a class="label label-primary" ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Download slides</a>
+			<a class="label label-primary" ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Link</a> 
+			<a class="label label-primary" ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Slides</a>
 			<a class="label label-primary" ng-click="open(pub)">BibTeX</a>
 		</div>
 	</div>
@@ -45,7 +45,7 @@
 		<span ng-show="pub.Fields.Abstract"><strong>Abstract: </strong>{{pub.Fields.Abstract}}</span>
 		<br />
 		<div id="pubButtons">
-			<a class="label label-primary" ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">PDF</a> 
+			<a class="label label-primary" ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Link</a> 
 			<a class="label label-primary" ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Slides</a>
 			<a class="label label-primary" ng-click="open(pub)">BibTeX</a>
 		</div>
@@ -71,8 +71,8 @@
 			<strong>Abstract:</strong> {{pub.Fields.Abstract}}
 		</span>
 		<div id="pubButtons">
-			<a class="label label-primary" ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Download PDF</a> 
-			<a class="label label-primary" ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Download slides</a>
+			<a class="label label-primary" ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Link</a> 
+			<a class="label label-primary" ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Slides</a>
 			<a class="label label-primary" ng-click="open(pub)">BibTeX</a>
 		</div>
 	</div>
