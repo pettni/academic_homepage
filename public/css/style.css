@@ -9,11 +9,11 @@ body {
 }
 
 #morearrow {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 #pubhidden {
-	margin-top: 5px;
+  margin-top: 5px;
 }
 
 #pubButtons {
@@ -31,7 +31,10 @@ body {
         margin: 10px;
         padding: 10px;
       }
+
 .clip_button.zeroclipboard-is-hover { background-color: #eee; }
 .clip_button.zeroclipboard-is-active { background-color: #aaa; }
 
-.img-center { margin: 0 auto; }
+.center-text {
+    text-align: center;
+}

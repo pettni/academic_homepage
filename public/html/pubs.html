@@ -23,11 +23,11 @@
 			    </span>			
 			    <span ng-switch-when="mastersthesis">
 			   		<span class="glyphicon glyphicon-book"></span>
-					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, <em>{{pub.Fields.Type}} at {{pub.Fields.School}}</em>, {{pub.Fields.Year}}
+					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, <span ng-if="pub.Fields.Type">{{pub.Fields.Type}}</span><span ng-if="!pub.Fields.Type">Master's thesis</span> at <em>{{pub.Fields.School}}</em>, {{pub.Fields.Year}}
 			    </span>
 			    <span ng-switch-when="phdthesis">
 			   		<span class="glyphicon glyphicon-book"></span>
-					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, Ph.D. thesis at {{pub.Fields.School}}</em>, {{pub.Fields.Year}}
+					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, Ph.D. thesis at <em>{{pub.Fields.School}}</em>, {{pub.Fields.Year}}
 			    </span>
 				<a id="morearrow" class="glyphicon" ng-class="{'glyphicon-arrow-down': showMore, 'glyphicon-arrow-right': !showMore}" ng-click="showMore = !showMore"></a>
 			</span>	
