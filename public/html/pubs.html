@@ -13,13 +13,20 @@
 			<span class="list-group-item-text" ng-switch on="pub.EntryType">
 			    <span ng-switch-when="article">
 			   		<span class="glyphicon glyphicon-file"></span>
-					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, <em>in {{pub.Fields.Journal}}</em>,<span ng-show="pub.Fields.Pages"> {{pub.Fields.Pages}},</span> {{pub.Fields.Year}} 
+					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, <em>in {{pub.Fields.Journal}}</em>, vol. {{pub.Fields.Volume}}, no. {{pub.Fields.Number}}, pp. {{pub.Fields.Pages}}, {{pub.Fields.Year}} 
 				</span>
 			    <span ng-switch-when="inproceedings">
    			   		<span class="glyphicon glyphicon-file"></span>
 					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, in <em>{{pub.Fields.Booktitle}}</em>,
-				<span ng-show="pub.Fields.Pages">{{pub.Fields.Pages}},</span> 
-				{{pub.Fields.Year}}
+				<span ng-show="pub.Fields.Pages">pp. {{pub.Fields.Pages}},</span> {{pub.Fields.Year}}
+			    </span>		
+ 			    <span ng-switch-when="book">
+   			   		<span class="glyphicon glyphicon-book"></span>
+					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, {{pub.Fields.Publisher}}, {{pub.Fields.Year}}
+			    </span>		
+ 			    <span ng-switch-when="inbook">
+   			   		<span class="glyphicon glyphicon-book"></span>
+					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Chapter}}</strong>, in {{pub.Fields.Title}}, pp. {{pub.Fields.Pages}}, {{pub.Fields.Publisher}}, {{pub.Fields.Year}}
 			    </span>			
 			    <span ng-switch-when="mastersthesis">
 			   		<span class="glyphicon glyphicon-book"></span>
@@ -44,3 +51,7 @@
 	</ul>
 
 </div>
+
+<small>
+<a href="data/bibfile.bib">Download .bib file that generated this page.</a>
+</small>
