@@ -13,7 +13,12 @@
 			<span class="list-group-item-text" ng-switch on="pub.EntryType">
 			    <span ng-switch-when="article">
 			   		<span class="glyphicon glyphicon-file"></span>
-					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, <em>in {{pub.Fields.Journal}}</em>, vol. {{pub.Fields.Volume}}, no. {{pub.Fields.Number}}, pp. {{pub.Fields.Pages}}, {{pub.Fields.Year}} 
+					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, 
+					<em>{{pub.Fields.Journal}}</em>, 
+					<span ng-show="pub.Fields.Volume">vol. {{pub.Fields.Volume}}, </span>
+					<span ng-show="pub.Fields.Number">no. {{pub.Fields.Number}}, </span>
+					<span ng-show="pub.Fields.Pages">pp. {{pub.Fields.Pages}}, </span>
+					{{pub.Fields.Year}} 
 				</span>
 			    <span ng-switch-when="inproceedings">
    			   		<span class="glyphicon glyphicon-file"></span>
