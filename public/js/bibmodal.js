@@ -1,18 +1,10 @@
 angular.module('acadApp').controller('BibModalCtrl', 
-   function ($scope, $modalInstance, text) {
+   function ($scope, $uibModalInstance, text) {
 
-  $scope.text = text;
+  $scope.text = "text";
 
   $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
-
-  $scope.getTextToCopy = function() {
-    return $scope.text;
-  };
-
-  $scope.doSomething = function() {
-    alert('Entry copied!');
+    $uibModalInstance.dismiss('cancel');
   };
 
 });

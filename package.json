@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "express": "^4.9.5"
+    "express": "^4.9.5",
+    "ngclipboard": "^1.0.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

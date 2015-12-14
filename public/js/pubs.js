@@ -1,7 +1,7 @@
 angular.module('acadApp')
 
-.controller('PubsCtrl', ['$scope', '$http', '$filter', '$modal',
-	function($scope, $http, $filter, $modal) {
+.controller('PubsCtrl', ['$scope', '$http', '$filter', '$uibModal',
+	function($scope, $http, $filter, $uibModal) {
 
 	// Remove ands
 	var replaceAllButLast = function(string, token) {
@@ -61,7 +61,7 @@ angular.module('acadApp')
 
 	// Open the bibtex modal
 	$scope.open = function (pub) {
-		var modalInstance = $modal.open({
+		var modalInstance = $uibModal.open({
 			templateUrl: 'html/bibmodal.html',
 			controller: 'BibModalCtrl',
 			size: 'lg',

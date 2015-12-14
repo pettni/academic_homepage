@@ -1,8 +1,4 @@
-angular.module('acadApp', ['ngRoute', 'ngClipboard', 'ui.bootstrap'])
-
-.config(['ngClipProvider', function(ngClipProvider) {
-  ngClipProvider.setPath("js/ZeroClipboard.swf");
-}])
+angular.module('acadApp', ['ngRoute', 'ui.bootstrap'])
 
 .config(function($routeProvider) {
   $routeProvider

@@ -7,16 +7,15 @@
   <title>Name Namesson</title>
 
   <!-- Remote angular js -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+
+  <!-- Remote clipboard -->
+  <!-- <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script> -->
 
   <!-- Angular UI Bootstrap -->
-  <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.2.min.js"></script>
+  <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.min.js"></script>
   
-  <!-- Remote bootstrap js -->
-  <!-- // <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> -->
-  <!-- // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
-
   <!-- Bibtex parser -->
   <script src="js/Parser.js"></script>
 
@@ -24,11 +23,10 @@
   <script src="js/main.js"></script>
   <script src="js/pubs.js"></script>
   <script src="js/bibmodal.js"></script>
-  <script src="js/ngClip.js"></script>
-  <script src="js/ZeroClipboard.min.js"></script>
+  <!-- <script src="js/ngclipboard.js"></script> -->
 
   <!-- Remote css -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
   <!-- Local css -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -46,12 +44,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a style="color: #428bca" class="navbar-brand" href="#">
-            <span class="glyphicon glyphicon-home"></span>
+        <a class="navbar-brand" href="#/">
+            <span class="color-theme glyphicon glyphicon-home"></span>
         </a>
       </div>
 
-      <div class="collapse navbar-collapse" collapse="navbarCollapsed" >
+      <div class="collapse navbar-collapse" uib-collapse="navbarCollapsed" >
         <ul class="nav navbar-nav">
           <li ng-class="{'active': button == '/bio'}">
             <a href="#/bio">

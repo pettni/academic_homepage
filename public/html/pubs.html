@@ -41,15 +41,15 @@
 			   		<span class="glyphicon glyphicon-book"></span>
 					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, Ph.D. thesis at <em>{{pub.Fields.School}}</em>, {{pub.Fields.Year}}
 			    </span>
-				<a id="morearrow" class="glyphicon" ng-class="{'glyphicon-arrow-down': showMore, 'glyphicon-arrow-right': !showMore}" ng-click="showMore = !showMore"></a>
+				<a id="morearrow" class="glyphicon color-theme" ng-class="{'glyphicon-arrow-down color-theme': showMore, 'glyphicon-arrow-right color-theme': !showMore}" ng-click="showMore = !showMore"></a>
 			</span>	
 
 			<div ng-show="showMore" id="pubhidden">
 				<span ng-show="pub.Fields.Abstract"><strong>Abstract: </strong>{{pub.Fields.Abstract}}</span>
 				<div id="pubButtons">
-					<a class="label label-primary" ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Link</a> 
-					<a class="label label-primary" ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Slides</a>
-					<a class="label label-primary" ng-click="open(pub)">BibTeX</a>
+					<a class="label label-theme" ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Link</a> 
+					<a class="label label-theme" ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Slides</a>
+					<a class="label label-theme" ng-click="open(pub)">BibTeX</a>
 				</div>
 			</div>
 		</li>
