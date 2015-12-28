@@ -27,7 +27,7 @@ angular.module('acadApp')
 	
 		$scope.cycling_dist = 0;
 		$scope.running_dist = 0;
-		$scope.total_time = 0;
+		$scope.trainer_time = 0;
 
 		athlete.read({}).$promise.then(
 			function(activities) {
@@ -37,9 +37,11 @@ angular.module('acadApp')
 					}
 					if (activities[i]['type'] == 'Ride') {
 						$scope.cycling_dist += activities[i]['distance']
+						if (activities[i]['trainer'] == true && activities[i]['distance'] == 0) {
+						    $scope.trainer_time += activities[i]['moving_time'];
+						}
 					}
-					$scope.total_time += activities[i]['moving_time'];
-				};
+				}
 			},
 			function(error) {
 
