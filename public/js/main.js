@@ -1,8 +1,9 @@
-angular.module('acadApp', ['ngRoute', 'ui.bootstrap'])
+angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
 
 .config(function($routeProvider) {
   $routeProvider
     .when('/', {
+      controller:'StravaCtrl',
       templateUrl:'html/main.html'
     })
     .when('/pubs', {
@@ -28,3 +29,8 @@ angular.module('acadApp', ['ngRoute', 'ui.bootstrap'])
 
   $scope.$on('$routeChangeStart', updateButton);
 })
+.filter('floor', function() {
+  return function(input) {
+    return Math.floor(input);
+  };
+});
