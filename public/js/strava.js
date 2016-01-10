@@ -27,19 +27,19 @@ angular.module('acadApp')
 	
 		$scope.cycling_dist = 0;
 		$scope.running_dist = 0;
-		$scope.trainer_time = 0;
-
+		
 		athlete.read({}).$promise.then(
 			function(activities) {
+				$scope.act = activities;
 				for (var i = activities.length - 1; i >= 0; i--) {
 					if (activities[i]['type'] == 'Run') {
 						$scope.running_dist += activities[i]['distance']
 					}
 					if (activities[i]['type'] == 'Ride') {
 						$scope.cycling_dist += activities[i]['distance']
-						if (activities[i]['trainer'] == true && activities[i]['distance'] == 0) {
-						    $scope.trainer_time += activities[i]['moving_time'];
-						}
+					}
+					if (activities[i]['type'] == 'VirtualRide') {
+						$scope.cycling_dist += activities[i]['distance']
 					}
 				}
 			},
