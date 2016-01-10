@@ -30,7 +30,6 @@ angular.module('acadApp')
 		
 		athlete.read({}).$promise.then(
 			function(activities) {
-				$scope.act = activities;
 				for (var i = activities.length - 1; i >= 0; i--) {
 					if (activities[i]['type'] == 'Run') {
 						$scope.running_dist += activities[i]['distance']
