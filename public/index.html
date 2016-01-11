@@ -13,6 +13,10 @@
   <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.min.js"></script> 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
+  <!-- Googe icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
   <!-- Local angular/bootstrap -->
   <!-- <script src="js/angular.min.js"></script>
   <script src="js/angular-route.min.js"></script>
@@ -46,7 +50,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#/">
-            <span class="color-theme glyphicon glyphicon-home"></span>
+              <i class="color-theme material-icons">home</i> 
         </a>
       </div>
 
@@ -54,20 +58,17 @@
         <ul class="nav navbar-nav">
           <li ng-class="{'active': button == '/bio'}">
             <a href="#/bio">
-              <span class="glyphicon glyphicon-info-sign"></span>
-              Bio
+              <i class="material-icons">person</i> Bio
             </a>
           </li>
           <li ng-class="{'active': button == '/pubs'}">
             <a href="#/pubs">
-              <span class="glyphicon glyphicon-file"></span> 
-              Publications
+              <i class="material-icons">insert_drive_file</i> Publications
             </a>
           </li>
           <li ng-class="{'active': button == '/more'}">
             <a href="#/more">
-              <span class="glyphicon glyphicon-plus"></span> 
-              More
+              <i class="material-icons">add</i> More
             </a>
           </li>
         </ul>

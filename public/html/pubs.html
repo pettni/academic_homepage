@@ -7,12 +7,12 @@
 	<h3>{{pub_info.name}}</h3>
 
 	<ul class="list-group">
-		<li class="list-group-item " ng-repeat="pub in pub_info.pubs | orderBy: '-Fields.Year'">
+		<li class="list-group-item publist_row" ng-repeat="pub in pub_info.pubs | orderBy: '-Fields.Year'">
 
 			<!-- Add text depending on publication type -->
 			<span class="list-group-item-text" ng-switch on="pub.EntryType">
 			    <span ng-switch-when="article">
-			   		<span class="glyphicon glyphicon-file"></span>
+			   		<i class="material-icons">insert_drive_file</i>
 					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, 
 					<em>{{pub.Fields.Journal}}</em>, 
 					<span ng-show="pub.Fields.Volume">vol. {{pub.Fields.Volume}}, </span>
@@ -21,27 +21,30 @@
 					{{pub.Fields.Year}} 
 				</span>
 			    <span ng-switch-when="inproceedings">
-   			   		<span class="glyphicon glyphicon-file"></span>
+			   		<i class="material-icons">insert_drive_file</i>
 					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, in <em>{{pub.Fields.Booktitle}}</em>,
 				<span ng-show="pub.Fields.Pages">pp. {{pub.Fields.Pages}},</span> {{pub.Fields.Year}}
 			    </span>		
  			    <span ng-switch-when="book">
-   			   		<span class="glyphicon glyphicon-book"></span>
+   			   		<i class="material-icons">book</i>
 					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, {{pub.Fields.Publisher}}, {{pub.Fields.Year}}
 			    </span>		
  			    <span ng-switch-when="inbook">
-   			   		<span class="glyphicon glyphicon-book"></span>
+   			   		<i class="material-icons">book</i>
 					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Chapter}}</strong>, in {{pub.Fields.Title}}, pp. {{pub.Fields.Pages}}, {{pub.Fields.Publisher}}, {{pub.Fields.Year}}
 			    </span>			
 			    <span ng-switch-when="mastersthesis">
-			   		<span class="glyphicon glyphicon-book"></span>
+			   		<i class="material-icons">book</i>
 					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, <span ng-if="pub.Fields.Type">{{pub.Fields.Type}}</span><span ng-if="!pub.Fields.Type">Master's thesis</span> at <em>{{pub.Fields.School}}</em>, {{pub.Fields.Year}}
 			    </span>
 			    <span ng-switch-when="phdthesis">
-			   		<span class="glyphicon glyphicon-book"></span>
+			   		<i class="material-icons">book</i>
 					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, Ph.D. thesis at <em>{{pub.Fields.School}}</em>, {{pub.Fields.Year}}
 			    </span>
-				<a id="morearrow" class="glyphicon color-theme" ng-class="{'glyphicon-arrow-down color-theme': showMore, 'glyphicon-arrow-right color-theme': !showMore}" ng-click="showMore = !showMore"></a>
+				<i id="morearrow" ng-click="showMore = !showMore" class="material-icons color-theme">
+						{{showMore ? 'arrow_downward' : 'arrow_forward'}}
+				</i>
+				</a>
 			</span>	
 
 			<div ng-show="showMore" id="pubhidden">
