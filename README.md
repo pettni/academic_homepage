@@ -3,7 +3,7 @@ A simple homepage for academic use, based on AngularJS and Bootstrap.
 
 ## Features
 * Lightweight.
-* Creates a list of publications from a `.bib` file.
+* Creates a searchable list of publications from a `.bib` file.
 * Includes node scripts for streamlined development with livereload etc.
 * Connects to Strava to obtain recent workouts
 

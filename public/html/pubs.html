@@ -1,13 +1,16 @@
 <h2>List of publications</h2>
 
+<p>Search: <input ng-model="filter_text"></p>
+
 <p ng-show="error" class="bg-danger">No publications found</p>
 
 <div ng-repeat="pub_info in sorted_pubs">
 
-	<h3>{{pub_info.name}}</h3>
+	<h3 ng-hide = "!filteredpubs.length">{{pub_info.name}}</h3>
 
 	<ul class="list-group">
-		<li class="list-group-item publist_row" ng-repeat="pub in pub_info.pubs | orderBy: '-Fields.Year'">
+		<li class="list-group-item publist_row" ng-repeat="pub in filteredpubs = (pub_info.pubs | orderBy: '-Fields.Year' | filter:filter_text)">
+			
 
 			<!-- Add text depending on publication type -->
 			<span class="list-group-item-text" ng-switch on="pub.EntryType">
@@ -57,7 +60,6 @@
 			</div>
 		</li>
 	</ul>
-
 </div>
 <p>
 <small>
