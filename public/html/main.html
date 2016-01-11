@@ -40,8 +40,15 @@
 
       <div class="col-xs-6 col-sm-3" style="text-align: center">
         <i class="material-icons">directions_bike</i><br />
-        <a href = {{strava_link}}>{{cycling_dist/1609.344 | number :0}} miles </a>
+        <a href = {{strava_link}}> Week: {{cycling_week_dist/1609.344 | number :0}} miles  <br />
+        YTD: {{cycling_ytd_dist/1609.344 | number :0}} miles</a>
       </div>
+
+<!--       <div class="col-xs-6 col-sm-3" style="text-align: center">
+        <i class="material-icons">directions_run</i><br />
+        <a href = {{strava_link}}> Week: {{running_week_dist/1609.344 | number :0}} miles  <br />
+        YTD: {{running_ytd_dist/1609.344 | number :0}} miles</a>
+      </div> -->
 
     </div>
 
