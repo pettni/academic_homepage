@@ -1,8 +1,12 @@
+/********************/
+/*     Overall      */
+/********************/
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-/* Set color of house */
+/* Set various colors */
 .color-theme {
   color: #428bca;
 }
@@ -24,28 +28,10 @@ a.label-theme {
   background-color: #428bca;
 }
 
-/* Margins, etc */
-
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
   max-width: 800px; /* or 950px */
-}
-
-#morearrow {
-  cursor: pointer;
-}
-
-#pubhidden {
-  margin-top: 5px;
-}
-
-#pubButtons {
-  margin-top: 5px;
-}
-
-#portrait {
-  margin-top:25px;
 }
 
 /* Align menu text with icons */
@@ -57,7 +43,34 @@ a.label-theme {
   vertical-align:top;
 }
 
-/* Align and change size of pub page icons */
+/********************/
+/*     Main page    */
+/********************/
+
+@media (min-width: 768px) {
+  #portrait {
+    margin-top:25px;
+  }
+}
+
+/********************/
+/* Publication page */
+/********************/
+
+#morearrow {
+  cursor: pointer;
+}
+
+/* Spacing in publications view*/
+#pubhidden {
+  margin-top: 5px;
+}
+
+#pubButtons {
+  margin-top: 5px;
+}
+
+/* Align and change size of icons */
 .list-group-item-text i {
   vertical-align:top;
   font-size: 18px;
