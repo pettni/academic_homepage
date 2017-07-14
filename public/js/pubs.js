@@ -3,6 +3,14 @@ angular.module('acadApp')
 .controller('PubsCtrl', ['$scope', '$http', '$filter', '$uibModal',
 	function($scope, $http, $filter, $uibModal) {
 
+	$scope.getDate = function(pub) {
+		if (pub.Fields.Month) {
+	   		return new Date(Date.parse(pub.Fields.Month +" 1, " + pub.Fields.Year));
+		} else {
+	   		return new Date(Date.parse("Jan 1, " + pub.Fields.Year));
+		}
+ 	};
+
 	// Remove ands
 	var replaceAllButLast = function(string, token) {
 		if (string.indexOf(token) == -1) {

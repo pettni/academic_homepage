@@ -13,7 +13,7 @@
 	<h3 ng-hide = "!filteredpubs.length">{{pub_info.name}}</h3>
 
 	<ul class="list-group">
-		<li class="list-group-item publist_row" ng-repeat="pub in filteredpubs = (pub_info.pubs | orderBy: '-Fields.Year' | filter:filter_text)">
+		<li class="list-group-item publist_row" ng-repeat="pub in filteredpubs = (pub_info.pubs | orderBy: getDate : true | filter:filter_text)">
 			
 
 			<!-- Add text depending on publication type -->
