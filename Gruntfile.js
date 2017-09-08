@@ -17,7 +17,7 @@ module.exports = function(grunt) {
         livereload: true,
       },
       dev: {
-        files: ['public/js/*.js', 'public/html/*.html', 'public/css/*.css'],
+        files: ['public/index.html', 'public/js/*.js', 'public/html/*.html', 'public/css/*.css'],
       }
     }
 });

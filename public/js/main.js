@@ -1,6 +1,6 @@
 angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
 
-.config(function($routeProvider) {
+.config(function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
       controller:'StravaCtrl',
@@ -19,6 +19,10 @@ angular.module('acadApp', ['ngRoute', 'ui.bootstrap', 'ngResource'])
     .otherwise({
       redirectTo:'/'
     });
+
+  $locationProvider.html5Mode(false);
+  $locationProvider.hashPrefix('');
+
 })
 .controller('mainCtrl', function($scope, $location) {
   var updateButton = function() {

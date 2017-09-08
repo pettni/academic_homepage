@@ -35,10 +35,10 @@ angular.module('acadApp')
 
   	// Read data from bibfile
   	$http({method: 'GET', url: 'data/bibfile.bib'}).
-  	success(function(data, status, headers, config) {
+  	then(function(response) {
 	  	// Parse bibtex to JSON
-	  	rawbib = data;
-	  	var rawjson = angular.fromJson(BibtexParser(data));
+	  	rawbib = response.data;
+	  	var rawjson = angular.fromJson(BibtexParser(response.data));
 
 	  	// Remove `and' between authors
 	  	for (index = 0; index < rawjson.entries.length; ++index) {
@@ -62,8 +62,7 @@ angular.module('acadApp')
 
 	  	$scope.sorted_pubs = sorted_pubs
 
-	  }).
-  	error(function(data, status, headers, config) {
+	  }, function(response) {
   		$scope.error = "No publications found";
   	});
 
@@ -78,7 +77,7 @@ angular.module('acadApp')
 					return setBib(pub);
 				}
 			}
-		});
+		}).result.then(function(){}, function(res){});
 	};
 
 }])
