@@ -75,3 +75,19 @@ a.label-theme {
   vertical-align:top;
   font-size: 18px;
 }
+
+.pic-modal .modal-dialog {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.pic-modal .modal-content {
+  box-shadow: none;
+  border-radius: 0px;
+  background: transparent;
+  border-color: transparent;
+}
+
+.pic-modal-back {
+  opacity: 0.75 !important;
+}

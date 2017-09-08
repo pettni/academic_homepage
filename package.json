@@ -8,5 +8,8 @@
     "grunt": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-express-server": "^0.5.3"
+  },
+  "dependencies": {
+    "grunt-cli": "^1.2.0"
   }
 }

@@ -25,7 +25,6 @@ module.exports = function(grunt) {
   // Load plugins.
   grunt.loadNpmTasks('grunt-express-server');
   grunt.loadNpmTasks('grunt-contrib-watch')
-  grunt.loadNpmTasks('grunt-reload')
 
   // Default task(s).
   grunt.registerTask('default', [
