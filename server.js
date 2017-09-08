@@ -1,7 +1,12 @@
-var express = require('express');
-var path = require('path');
-var app = express();
+const express = require('express')
+const app = express()
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(require('connect-livereload')({
+    port: 35729
+}));
 
-module.exports = app;
+app.use(express.static('public'));
+
+app.listen(3000, function () {
+  console.log('Now listening on port 3000!')
+})
