@@ -70,18 +70,25 @@ a.label-theme {
   margin-top: 5px;
 }
 
+.pic {
+  cursor: pointer;
+}
+
 /* Align and change size of icons */
 .list-group-item-text i {
   vertical-align:top;
   font-size: 18px;
 }
 
-.pic-modal .modal-dialog {
+.img-modal {
   max-width: 90%;
   max-height: 90%;
+  height: auto;
+  width: auto;
 }
 
 .pic-modal .modal-content {
+  text-align: center;
   box-shadow: none;
   border-radius: 0px;
   background: transparent;
@@ -91,3 +98,4 @@ a.label-theme {
 .pic-modal-back {
   opacity: 0.75 !important;
 }
+
