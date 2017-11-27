@@ -1,4 +1,4 @@
-#academic_homepage
+# academic_homepage
 A simple homepage for academic use, based on AngularJS and Bootstrap.
 
 ## Features
