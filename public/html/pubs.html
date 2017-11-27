@@ -17,7 +17,7 @@
 			
 
 			<!-- Add text depending on publication type -->
-			<span class="list-group-item-text" ng-switch on="pub.EntryType">
+			<span class="list-group-item-text" ng-switch on="pub.EntryType" ng-click="showMore = !showMore" >
 			    <span ng-switch-when="article">
 			   		<i class="material-icons">insert_drive_file</i>
 					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, 
@@ -48,7 +48,7 @@
 			   		<i class="material-icons">book</i>
 					{{pub.Fields.Author_noand}}, <strong>{{pub.Fields.Title}}</strong>, Ph.D. thesis at <em>{{pub.Fields.School}}</em>, {{pub.Fields.Year}}
 			    </span>
-				<i id="morearrow" ng-click="showMore = !showMore" class="material-icons color-theme">
+				<i id="morearrow" class="material-icons color-theme">
 						{{showMore ? 'arrow_downward' : 'arrow_forward'}}
 				</i>
 				</a>
@@ -57,6 +57,8 @@
 			<div ng-show="showMore" id="pubhidden">
 				<span ng-show="pub.Fields.Abstract"><strong>Abstract: </strong>{{pub.Fields.Abstract}}</span>
 				<div id="pubButtons">
+					<a class="label label-theme" ng-show="pub.Fields.Doi" href="https://doi.org/{{pub.Fields.Doi}}">DOI: {{pub.Fields.Doi}}</a> 
+					<a class="label label-theme" ng-show="pub.Fields.Eprint" href="http://arxiv.org/abs/{{pub.Fields.Eprint}}">arXiv: {{pub.Fields.Eprint}} [{{pub.Fields.Eprintclass}}]</a> 
 					<a class="label label-theme" ng-show="pub.Fields.Url" href="{{pub.Fields.Url}}">Link</a> 
 					<a class="label label-theme" ng-show="pub.Fields.Slides" href="{{pub.Fields.Slides}}">Slides</a>
 					<a class="label label-theme" ng-click="open(pub)">BibTeX</a>
