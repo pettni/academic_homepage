@@ -1,6 +1,8 @@
 # academic_homepage
 A simple homepage for academic use, based on AngularJS and Bootstrap.
 
+This project has now been ported from AngularJS to Angular. Access the new project [here](https://github.com/pettni/academic_homepage2). **This repository will no longer be updated.**
+
 ## Features
 * Lightweight.
 * Creates a searchable list of publications from a `.bib` file.
